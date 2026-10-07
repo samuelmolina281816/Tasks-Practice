@@ -1,0 +1,10 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: tarjetas-api
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html

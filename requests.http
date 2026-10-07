@@ -1,0 +1,40 @@
+### Las peticiones 2 a 9 funcionarán cuando completes el ejercicio
+
+### 1. Listar todas las tarjetas
+GET http://localhost:8080/api/v1/tarjetas
+
+### 2. Consultar una tarjeta (200)
+GET http://localhost:8080/api/v1/tarjetas/4111000000000001
+
+### 3. Consultar una tarjeta que no existe (404)
+GET http://localhost:8080/api/v1/tarjetas/4111000000000099
+
+### 4. Registrar una tarjeta (201)
+POST http://localhost:8080/api/v1/tarjetas
+Content-Type: application/json
+
+{ "numero": "4111000000000006", "titular": "Pedro Salas", "tipo": "CREDITO", "limite": 2500.00 }
+
+### 5. Registrar con datos inválidos: crédito sin límite (400)
+POST http://localhost:8080/api/v1/tarjetas
+Content-Type: application/json
+
+{ "numero": "4111000000000007", "titular": "Lucía Paz", "tipo": "CREDITO", "limite": 0 }
+
+### 6. Registrar con tipo inválido (400)
+POST http://localhost:8080/api/v1/tarjetas
+Content-Type: application/json
+
+{ "numero": "4111000000000008", "titular": "Lucía Paz", "tipo": "PREPAGO", "limite": 100 }
+
+### 7. Registrar un número repetido (409)
+POST http://localhost:8080/api/v1/tarjetas
+Content-Type: application/json
+
+{ "numero": "4111000000000001", "titular": "Otra Persona", "tipo": "DEBITO", "limite": 0 }
+
+### 8. Bloquear una tarjeta (200)
+PUT http://localhost:8080/api/v1/tarjetas/4111000000000004/bloquear
+
+### 9. Bloquear una tarjeta que no existe (404)
+PUT http://localhost:8080/api/v1/tarjetas/4111000000000099/bloquear
